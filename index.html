@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#215c4a" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Kinaray-a leicht lernen</title>
+</head>
+<body>
+  <header>
+    <div class="brand">🌴 Kinaray-a leicht lernen</div>
+    <button id="installBtn" class="small hidden">App installieren</button>
+  </header>
+
+  <main>
+    <section id="home" class="screen active">
+      <div class="hero">
+        <h1>Mayad nga adlaw, Clemens!</h1>
+        <p>Heute nur fünf einfache Wörter – ohne Zeitdruck.</p>
+      </div>
+      <div class="stats">
+        <div><strong id="learnedCount">0</strong><span>gelernt</span></div>
+        <div><strong id="dueCount">0</strong><span>zu üben</span></div>
+        <div><strong id="streak">1</strong><span>Lerntag</span></div>
+      </div>
+      <div class="menu">
+        <button data-go="learn">📚 Heute lernen<br><small>5 häufige Alltagswörter</small></button>
+        <button data-go="review">🔁 Wiederholen<br><small>Schwierige Wörter zuerst</small></button>
+        <button data-go="list">🔎 Alle Wörter<br><small>Suchen und anhören</small></button>
+        <button data-go="settings">⚙️ Einstellungen<br><small>Stimme und Lerntempo</small></button>
+      </div>
+      <aside class="notice">Die Kinaray-a-Formen sind eine erste Lernfassung. Carmela oder eine Person aus Sebaste sollte regionale Varianten später prüfen.</aside>
+    </section>
+
+    <section id="learn" class="screen">
+      <nav><button data-home>← Start</button><span id="progressText"></span></nav>
+      <div id="card" class="card">
+        <div class="category" id="category"></div>
+        <div class="german" id="german"></div>
+        <div class="english" id="english"></div>
+        <button id="revealBtn" class="primary">Kinaray-a zeigen</button>
+        <div id="answer" class="answer hidden">
+          <div class="kinaray" id="kinaray"></div>
+          <div class="hint" id="hint"></div>
+          <button id="speakBtn" class="speak">🔊 Langsam anhören</button>
+          <p class="question">Wie gut konntest Du es?</p>
+          <div class="rating">
+            <button data-rate="again">Noch einmal</button>
+            <button data-rate="almost">Fast</button>
+            <button data-rate="easy">Gewusst</button>
+          </div>
+        </div>
+      </div>
+      <div id="done" class="done hidden">
+        <h2>Sehr gut!</h2><p>Die heutige kleine Einheit ist geschafft.</p>
+        <button data-home class="primary">Zurück zum Start</button>
+      </div>
+    </section>
+
+    <section id="list" class="screen">
+      <nav><button data-home>← Start</button><strong>Alle Wörter</strong></nav>
+      <input id="search" type="search" placeholder="Deutsch, Englisch oder Kinaray-a suchen" />
+      <div id="wordList" class="word-list"></div>
+    </section>
+
+    <section id="settings" class="screen">
+      <nav><button data-home>← Start</button><strong>Einstellungen</strong></nav>
+      <label>Wörter pro Einheit
+        <select id="dailySize"><option>3</option><option selected>5</option><option>7</option><option>10</option></select>
+      </label>
+      <label>Sprechtempo
+        <input id="rate" type="range" min="0.45" max="1" step="0.05" value="0.65" />
+      </label>
+      <label>Stimme
+        <select id="voiceSelect"></select>
+      </label>
+      <button id="testVoice" class="primary">🔊 Stimme testen</button>
+      <button id="reset" class="danger">Lernfortschritt zurücksetzen</button>
+      <p class="notice">Android verwendet die auf dem Gerät installierten Stimmen. Eine philippinische Frauenstimme kann Kinaray-a nur annähernd aussprechen.</p>
+    </section>
+  </main>
+
+<script src="app.js"></script>
+</body>
+</html>
